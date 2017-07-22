@@ -3,10 +3,10 @@ Headphones Spotifty Import
 ---------------------------------------------------------
 
 Prerequisites:
-Exportify CSV file named all.csv (https://rawgit.com/watsonbox/exportify/master/exportify.html)
-Headphones with enabled API (Settings>Web Interface>API>Enable API) (https://github.com/rembo10/headphones)
-Python (Hasn't been tested on any version lower than 3.62) (https://www.python.org/)
-Python Requests (May require pip to install on windows, setup is easiest on linux in my opinion.) (http://docs.python-requests.org/en/master/user/install/))
+1. Exportify CSV file named all.csv (https://rawgit.com/watsonbox/exportify/master/exportify.html)
+2. Headphones with enabled API (Settings>Web Interface>API>Enable API) (https://github.com/rembo10/headphones)
+3. Python (Hasn't been tested on any version lower than 3.62) (https://www.python.org/)
+4. Python Requests (May require pip to install on windows, setup is easiest on linux in my opinion.) (http://docs.python-requests.org/en/master/user/install/))
 
 ---------------------------------------------------------
 
