@@ -85,7 +85,7 @@ for row in csv_f:
     json_obj = r.text
     readable_json = json.loads(json_obj)
     for i in readable_json:
-        if i['title'].startswith(albumname):
+        if i['title'].startswith(albumname) and i['uniquename'].startswith(artist):
             matchFoundTitle = i['title']
             matchFoundAlbumID = i['albumid']
 
