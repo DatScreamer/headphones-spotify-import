@@ -1,4 +1,4 @@
-# Script created by DatScreamer. Free to use forever.
+# Script created by DatScreamer.
 
 Prerequisites:
 Exportify CSV file named all.csv (https://rawgit.com/watsonbox/exportify/master/exportify.html)
