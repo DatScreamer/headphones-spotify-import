@@ -1,4 +1,4 @@
-# Script created by DatScreamer.
+#Headphones Spotifty Import
 
 Prerequisites:
 Exportify CSV file named all.csv (https://rawgit.com/watsonbox/exportify/master/exportify.html)
