@@ -57,6 +57,7 @@ else:
     print ("Error. Failed to start up.")
 
 for row in csv_f:
+    print ("#####################################")
     print ("Getting info from file.")
     artist = row[2]
     albumname = row[3]
