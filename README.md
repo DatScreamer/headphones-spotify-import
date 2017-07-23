@@ -2,6 +2,11 @@ Headphones Spotifty Import
 
 ---------------------------------------------------------
 
+TODO:
+-Add color coded feedback messages
+
+---------------------------------------------------------
+
 Prerequisites:
 1. Exportify CSV file named all.csv (https://rawgit.com/watsonbox/exportify/master/exportify.html)
 2. Headphones with enabled API (Settings>Web Interface>API>Enable API) (https://github.com/rembo10/headphones)
