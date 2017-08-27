@@ -2,6 +2,10 @@ Headphones Spotifty Import
 
 ---------------------------------------------------------
 
+Notice: Script won't tell you if it fails to find result in Musicbrainz search. I have yet to deal with this error handling. I may update it to fix this minor detail in the future, but for now the script works fine for items that are found (95%)
+
+---------------------------------------------------------
+
 TODO:
 -Add color coded feedback messages
 
