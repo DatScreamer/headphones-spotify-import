@@ -8,7 +8,8 @@
 #   Headphones with enabled API (Settings>Web Interface>API>Enable API) (https://github.com/rembo10/headphones)
 #   Python (Hasn't been tested on any version lower than 3.62) (https://www.python.org/)
 #   Python Requests (May require pip to install on windows, setup is easiest on linux in my opinion.) (http://docs.python-requests.org/en/master/user/install/))
-#
+#   Colorama (pip install colorama) https://pypi.python.org/pypi/colorama
+# 
 # Instructions:
 #   1. Open Spotify (I used the desktop client) and create a new playlist with all the music you want to download. I went into "Songs" (Spotify>Songs) and selected everything with Ctrl+A then dragged the selection to the playlist in the sidebar.
 #   2. Open your web browser and go to https://rawgit.com/watsonbox/exportify/master/exportify.html. Log in with your Spotify account and click export on your desired playlist.
