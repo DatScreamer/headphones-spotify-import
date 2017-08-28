@@ -89,6 +89,7 @@ for row in csv_f:
         if i['title'].startswith(albumname) and i['uniquename'].startswith(artist):
             matchFoundTitle = i['title']
             matchFoundAlbumID = i['albumid']
+            searchStatus = "resultFound"
 
             print ("Found matching album:", matchFoundTitle)
             print ("Got relating Album ID for",matchFoundTitle,":",matchFoundAlbumID)
@@ -103,6 +104,13 @@ for row in csv_f:
                 print (r.status_code)
 
             break
+
+        else:
+            searchStatus = "resultNotFound"
+
+    if searchStatus == "resultNotFound":
+        print ('Failed to match result with Musicbrainz.')
+
 print ("Finished!! We are done sending things to download!")
 exit()
 f.close()
