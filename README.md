@@ -22,7 +22,7 @@ Instructions:
 5. Install Headphones on whatever device you like, as long as it's on the same network as you are running the script on. If Headphones seemingly hasnt installed correctly and the webpage won't load you may need to edit the "config.ini" and change the host gateway (or whatever it's called.) from "localhost" to "0.0.0.0". This allows for headphones to run and be accessable on the network rather than just the local machine.
 6. Setup Headphones. Go into the settings and configure your download settings, search provider settings, quality settings, etc...
 7. Enable the API on Headphones. Go to Settings>Web Interface and enable the API.
-8. Generate an API key from above webpage. Copy it and paste it into the two (YES. Two) lines titled "Change the below URL to the correct one. It may be something like "http://localhost:8181" or "https://192.168.0.17:8181". You Also need to change "apikey=yourapikey to the api key you generated via the instrustions"" below in this document.
+8. Generate an API key from above webpage. And set your host and api key below.
 9. You may need to use a Mirror domain for Musicbrainz if the musicbrainz searching is taking extended periods of time. If this is the case you can change it via Settings>Advanced Settings. I use the folling settings: Musicbrainz Mirror: Custom | Host: musicbrainz-mirror.eu | Port: 5000 | Required Authentication: No (unchecked) | Sleep Interval: 1
 10. Am I missing anything? Lol. Don't think so. Let me know if you need help though.
 11. Open terminal/command-line and navigate to the folder where all.csv and inporter.py are located.
