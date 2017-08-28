@@ -26,7 +26,7 @@
 ######################################################'
 
 host = "" # eg. myserver.com:8181, localhost:8181
-apikey = ""
+apikey = "" # your api key from headphones
 
 import csv
 import json
