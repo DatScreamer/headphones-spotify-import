@@ -25,6 +25,9 @@
 #   13. Wait. It may take a really long time to complete the script, depending on your music library size.
 ######################################################'
 
+host = "" # eg. myserver.com:8181, localhost:8181
+apikey = ""
+
 import csv
 import json
 import requests
@@ -73,10 +76,7 @@ for row in csv_f:
     print ("Return:", artist, "-", albumname)
     payload = {'cmd': 'findAlbum', 'name': '%s - %s' % (albumname, artist)}
 
-    #################
-    ###################################   Change the below URL to the correct one. It may be something like "http://localhost:8181" or "https://192.168.0.17:8181". You Also need to change "apikey=yourapikey to the api key you generated via the instrustions"
-    #################
-    r = requests.get('http://screamserver.local:8181/api?apikey=61b9a7609fc506b6a51502fa46e163f8', params=payload)
+    r = requests.get('http://' + host + '/api?apikey=' + apikey, params=payload)
     status = r.status_code
     if status == 200:
         print ("Successfully got JSON!")
@@ -95,10 +95,7 @@ for row in csv_f:
             print ("Adding album to Headphones...")
             payload2 = {'cmd': 'addAlbum', 'id': '%s' % (matchFoundAlbumID)}
 
-            #################
-            ###################################   Change the below URL to the correct one. It may be something like "http://localhost:8181" or "https://192.168.0.17:8181". You Also need to change "apikey=yourapikey to the api key you generated via the instrustions"
-            #################
-            r = requests.get('http://screamserver.local:8181/api?apikey=61b9a7609fc506b6a51502fa46e163f8', params=payload2)
+            r = requests.get('http://' + host + '/api?apikey=' + apikey, params=payload2)
             status = r.status_code
             if status == 200:
                 print ('Successfully added album to "Wanted"!')
