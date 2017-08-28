@@ -2,8 +2,7 @@ Headphones Spotifty Import
 
 ---------------------------------------------------------
 
-TODO:
--Add color coded feedback messages
+Notice: Due to the fact that Headphones relies on Musicbrainz to find information (artists, albums) we cannot garuntee that a song will be added to Headphones because of disparities between Spotify and Musicbrainz databases. Such as Spotify may have an album but Musibrainz may not but rather have only 2x songs from that album as singles.
 
 ---------------------------------------------------------
 
