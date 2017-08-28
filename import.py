@@ -28,89 +28,107 @@
 host = "" # eg. myserver.com:8181, localhost:8181
 apikey = "" # your api key from headphones
 
+
 import csv
 import json
 import requests
 import time
+import pip
 
-print ("Caution: This may take a very long time to complete, Depending on your music library size.")
-print ("Warning: This script does not support individual songs. It downloads the entire album that each of your songs are a part of.")
-print ("Waiting...")
-time.sleep(5)
-print ("Starting in...")
-time.sleep(1)
-print("5..")
-time.sleep(1)
-print("4..")
-time.sleep(1)
-print("3..")
-time.sleep(1)
-print("2..")
-time.sleep(1)
-print("1..")
-time.sleep(1)
-print ("Starting!")
+def install(colorama):
+    pip.main(['install', package])
 
-f = open('all.csv')
+import colorama
+colorama.init()
+start = "\033[0;0m"
+error = "\033[1;31m"
+success = "\033[1;32m"
+warning = "\033[1;33m"
 
-csv_f = csv.reader(f)
-if 'f' in locals():
-    print ("Starting Up!")
+if host == "" or apikey == "":
+    # print (error + "Error. Enter Host and API key in this file (import.py).")
+    input()
+
 else:
-    print ("Error. Failed to start up.")
 
-for row in csv_f:
-    print ("#####################################")
-    print ("Getting info from file.")
-    artist = row[2]
-    albumname = row[3]
-    if 'artist' in locals():
-        print ("Successfully retreived artist from file.")
+    print (start + "Caution: This may take a very long time to complete, Depending on your music library size.")
+    print (start + "Warning: This script does not support individual songs. It downloads the entire album that each of your songs are a part of.")
+    print (start + "Waiting...")
+    time.sleep(5)
+    print (start + "Starting in...")
+    time.sleep(1)
+    print(start + "5..")
+    time.sleep(1)
+    print(start + "4..")
+    time.sleep(1)
+    print(start + "3..")
+    time.sleep(1)
+    print(start + "2..")
+    time.sleep(1)
+    print(start + "1..")
+    time.sleep(1)
+    print (start + "Starting!")
+
+    f = open('all.csv')
+
+    csv_f = csv.reader(f)
+    if 'f' in locals():
+        print (start + "Starting Up!")
     else:
-        print ("Failed to read file.")
+        print (error + "Error. Failed to start up.")
 
-    if 'albumname' in locals():
-        print ("Successfully retreived album from file.")
-    else:
-        print ("Failed to read file.")
-    print ("Return:", artist, "-", albumname)
-    payload = {'cmd': 'findAlbum', 'name': '%s - %s' % (albumname, artist)}
-
-    r = requests.get('http://' + host + '/api?apikey=' + apikey, params=payload)
-    status = r.status_code
-    if status == 200:
-        print ("Successfully got JSON!")
-    else:
-        print (r.status_code)
-    print ("Commencing Musicbrainz search!")
-    json_obj = r.text
-    readable_json = json.loads(json_obj)
-    for i in readable_json:
-        if i['title'].startswith(albumname) and i['uniquename'].startswith(artist):
-            matchFoundTitle = i['title']
-            matchFoundAlbumID = i['albumid']
-            searchStatus = "resultFound"
-
-            print ("Found matching album:", matchFoundTitle)
-            print ("Got relating Album ID for",matchFoundTitle,":",matchFoundAlbumID)
-            print ("Adding album to Headphones...")
-            payload2 = {'cmd': 'addAlbum', 'id': '%s' % (matchFoundAlbumID)}
-
-            r = requests.get('http://' + host + '/api?apikey=' + apikey, params=payload2)
-            status = r.status_code
-            if status == 200:
-                print ('Successfully added album to "Wanted"!')
-            else:
-                print (r.status_code)
-
-            break
-
+    for row in csv_f:
+        print (start + "#####################################")
+        print (start + "Getting info from file.")
+        artist = row[2]
+        albumname = row[3]
+        if 'artist' in locals():
+            print (start + "Successfully retreived artist from file.")
         else:
-            searchStatus = "resultNotFound"
+            print (error + "Failed to read file.")
 
-    if searchStatus == "resultNotFound":
-        print ('Failed to match result with Musicbrainz.')
+        if 'albumname' in locals():
+            print (start + "Successfully retreived album from file.")
+        else:
+            print (error + "Failed to read file.")
+        print (start + "Return:", artist, "-", albumname)
+        payload = {'cmd': 'findAlbum', 'name': '%s - %s' % (albumname, artist)}
 
-print ("Finished!! We are done sending things to download!")
-exit()
-f.close()
+        r = requests.get('http://' + host + '/api?apikey=' + apikey, params=payload)
+        status = r.status_code
+        if status == 200:
+            print (start + "Successfully got JSON!")
+        else:
+            print (warning + r.status_code)
+        print (start + "Commencing Musicbrainz search!")
+        json_obj = r.text
+        readable_json = json.loads(json_obj)
+        for i in readable_json:
+            if i['title'].startswith(albumname) and i['uniquename'].startswith(artist):
+                matchFoundTitle = i['title']
+                matchFoundAlbumID = i['albumid']
+                searchStatus = "resultFound"
+
+                print (success + "Found matching album:", matchFoundTitle)
+                print (start + "Got relating Album ID for",matchFoundTitle,":",matchFoundAlbumID)
+                print (start + "Adding album to Headphones...")
+                payload2 = {'cmd': 'addAlbum', 'id': '%s' % (matchFoundAlbumID)}
+
+                r = requests.get('http://' + host + '/api?apikey=' + apikey, params=payload2)
+                status = r.status_code
+                if status == 200:
+                    print (success + 'Successfully added album to "Wanted"!')
+                else:
+                    print (warning + r.status_code)
+
+                break
+
+            else:
+                searchStatus = "resultNotFound"
+
+        if searchStatus == "resultNotFound":
+            print (error + 'Failed to match result with Musicbrainz.')
+
+    print (success + "Finished!! We are done sending things to download!")
+    exit()
+    f.close()
